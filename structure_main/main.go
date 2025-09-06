@@ -1,34 +1,15 @@
 package main
 
-import (
-	"fmt"
-	"reflect"
-)
-
-// public
-type Users struct {
-	Name      string
-	Age       int
-	IsStudent bool
-}
+import "fmt"
 
 //private
-// type users struct {
-// 	name      string
-// 	age       int
-// 	isStudent bool
-// }
 
 // modification on struct using
-func (p *Users) updateName(newname string, newage int) {
-	p.Name = newname
-	p.Age = newage
 
-}
-
-type party struct {
-	name string
-	age  int
+type scores struct {
+	english int
+	math    int
+	local   int
 }
 
 func main() {
@@ -45,62 +26,23 @@ func main() {
 	//   ...
 	// }
 
-	// p1 := Person{"Leo", 21, "Lagos"}
-	// p2 := Person{Name: "John", Age: 30}
-	// var testing = Person{City: "anam"}
-	// fmt.Println(testing)
-	// fmt.Println(p2)
-	// fmt.Println(p1)
-
-	// //way two annoynimous struct
-	// p3 := struct {
-	// 	title string
-	// 	age   int
-	// }{title: "leowave blog", age: 200}
-
-	// p4 := &p3
-	// fmt.Println(p4.age)
-	// fmt.Println(p4.title)
-
-	// p4 := map[int]string{
-	// 	"apple":  5,
-	// 	"banana": 10,
-	// }
-	// fmt.Println(p4["apple"])
-	// fmt.Println(p4["banana"])
-
-	students := Users{Name: "leo", Age: 23, IsStudent: true}
-	// students.isStudent = false
-	students.updateName("smith", 20)
-	//pointer cone
-	// v := reflect.ValueOf(students)
-	studentskodex := &students
-	v := reflect.ValueOf(studentskodex)
-	fmt.Println(v)
-
-	//looping
-
-	// for k, v := range studentskodex.name {
-
-	// }
-
-	// fmt.Println(students.name, students.isStudent)
-
-	var parties = map[string]party{
-		"obi": {
-			name: "wave",
-			age:  25,
-		},
-		"akpu": {
-			name: "akpu",
-			age:  12,
-		},
+	//make allow u to create empty map and assign it later
+	//eg let see the differencis
+	//map
+	var names = map[string]string{
+		"student1": "chuks",
+		"student2": "leowave",
 	}
-
-	for v, k := range parties {
-		fmt.Println(v, "-", k.age)
-
+	//accessing in map
+	fmt.Println(names["student1"])
+	//deleting using in map
+	delete(names, "student1")
+	//adding
+	names["Ada"] = "cartel"
+	//looping over map you cannot use for loop len in map map only use range to loop for
+	for k, v := range names {
+		fmt.Println("key", k, "-", "value", v)
 	}
+	//make make and map are the same thing in map u create and assign direct but in  make u just create empty map and assign later
 
-	fmt.Println(parties["obi"].age)
 }
